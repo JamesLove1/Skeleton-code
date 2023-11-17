@@ -82,16 +82,16 @@ void lex_file(SymbolTable *labels, FILE *input, FILE *output){
 
     printf("\n");
 
-    int cnt = 0;
+    int count = 0;
     char buf[100] = {'\0'};
     while(fgets(buf,100,input)){
 
         // printf("%s",buf);
         // lex_line(&cnt,labels,buf,output);
 
-        printf("%u\n",&cnt);
+        printf("&count:%u\n",count);
 
-        cnt++;
+        count++;
     
     }
 
