@@ -25,7 +25,7 @@ void parse_c_dest(Token *instruction[], int length, char *dest_str);
 int main(int argc, char *argv[]) {
     if (argc != 3) {
         printf("Please supply two arguments: an input .asm file, and an output .hack file.");
-        exit(EXIT_FAILURE);;
+        exit(EXIT_FAILURE);
     }
     char *input_name = argv[1];
     char *output_name = argv[2];
@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
     SymbolTable *variables = malloc_table();
 
     FILE *input = fopen(input_name, "r");
+
     if (input == NULL) {
         exit(EXIT_FAILURE);
     }
@@ -41,7 +42,9 @@ int main(int argc, char *argv[]) {
     if (lex_output == NULL) {
         exit(EXIT_FAILURE);
     }
+
     lex_file(labels, input, lex_output);
+
     fclose(input);
     fclose(lex_output);
 
@@ -63,15 +66,52 @@ int main(int argc, char *argv[]) {
     return EXIT_SUCCESS;
 }
 
+
+
+
+
+
+
+
+
+
+
 // Outputs a tokenised version of input to output while populating labels.
-void lex_file(SymbolTable *labels, FILE *input, FILE *output) {
+void lex_file(SymbolTable *labels, FILE *input, FILE *output){
     // Your code here!
+
+    printf("\n");
+
+    int cnt = 0;
+    char buf[100] = {'\0'};
+    while(fgets(buf,100,input)){
+
+        // printf("%s",buf);
+        // lex_line(&cnt,labels,buf,output);
+
+        printf("%u\n",&cnt);
+
+        cnt++;
+    
+    }
+
+    // printf("labels->table_length:%i, labels->table_array:%i, labels->table_space:%i \n",labels->table_length, labels->table_array, labels->table_space);
+
+    // fprintf(output,"%s","helloWorld_2");
+
+
+
 }
 
 // Reads the next line from input, tokenises it, updates the label table, and writes the resulting tokens to output.
 // Increments *line_no if the current line contains an instruction (rather than e.g. labels, comments, etc.)
 void lex_line(int *line_no, SymbolTable *labels, const char *line, FILE *output) {
     // Your code here!
+
+    printf("line_no:%d, line:%s\n",line_no,line);
+
+    // printf("labels->table_length:%i, labels->table_array:%i, labels->table_space:%i \n",labels->table_length, labels->table_array, labels->table_space);
+
 }
 
 // Assuming line contains a label and starts with "(" (so no leading whitespace), extracts the label and adds it to
@@ -88,6 +128,41 @@ void lex_label(const char *line, int line_no, SymbolTable *labels) {
 int lex_token(Token *dest, const char *line) {
     // Your code here!
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Labels should be a pre-populated label symbol table. Input should be a tokenised file. Populates the variables symbol
 // table and writes Hack machine code to output.

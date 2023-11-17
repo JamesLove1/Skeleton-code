@@ -13,7 +13,8 @@ struct SymbolTable {
     TableEntry **table_array; // Remember a double pointer is the same as an array of pointers.
     int table_length;
     int table_space;
-}; typedef struct SymbolTable SymbolTable;
+}; 
+typedef struct SymbolTable SymbolTable;
 
 // Creates and returns a new empty symbol table.
 SymbolTable *malloc_table();

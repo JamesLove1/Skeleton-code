@@ -15,6 +15,7 @@ SymbolTable *malloc_table() {
 void free_table(SymbolTable *table) {
     for (int i=0; i<table->table_length; i++) {
         free(table->table_array[i]->name);
+        free(table->table_array[i]);
     }
     free(table->table_array);
     free(table);
