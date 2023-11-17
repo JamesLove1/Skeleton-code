@@ -7,14 +7,16 @@ enum TokenType {
     INTEGER_LITERAL,
     IDENTIFIER,
     NEWLINE
-}; typedef enum TokenType TokenType;
+}; 
+typedef enum TokenType TokenType;
 
 enum Keyword {
     JGT, JEQ, JLT, JGE, JNE, JLE, JMP,
     SCREEN, KBD, SP, LCL, ARG, THIS, THAT,
     R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15,
     KW_A, KW_D, KW_M
-}; typedef enum Keyword Keyword;
+}; 
+typedef enum Keyword Keyword;
 
 /* A union is a special type that uses one spot in memory to store one of several
  * different variables of different types. Here, TokenData can store either a Keyword,
@@ -32,12 +34,14 @@ union TokenData {
     int int_val;
     char char_val;
     char *str_val;
-}; typedef union TokenData TokenData;
+}; 
+typedef union TokenData TokenData;
 
 struct Token {
     TokenType type;
     TokenData value;
-}; typedef struct Token Token;
+}; 
+typedef struct Token Token;
 
 // Returns a pointer to a newly-allocated Token object.
 Token *malloc_token();
